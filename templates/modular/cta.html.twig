@@ -1,0 +1,67 @@
+{% set layout = page.header.cta_layout|default('split') %}
+{% set preset = page.header.cta_preset|default('primary') %}
+{% set target = page.header.button_target_blank ? 'target="_blank" rel="noopener noreferrer"' : '' %}
+{% set cta_id = 'modular-cta-' ~ page.slug %}
+
+{# Build dynamic CSS custom properties for custom colors #}
+{% set inline_styles = [] %}
+{% if page.header.bg_color %}
+    {% set inline_styles = inline_styles|merge(['--mcta-bg: ' ~ page.header.bg_color]) %}
+{% endif %}
+{% if page.header.text_color %}
+    {% set inline_styles = inline_styles|merge(['--mcta-text: ' ~ page.header.text_color]) %}
+{% endif %}
+{% if page.header.body_color %}
+    {% set inline_styles = inline_styles|merge(['--mcta-body: ' ~ page.header.body_color]) %}
+{% endif %}
+{% if page.header.btn_bg_color %}
+    {% set inline_styles = inline_styles|merge(['--mcta-btn-bg: ' ~ page.header.btn_bg_color]) %}
+{% endif %}
+{% if page.header.btn_text_color %}
+    {% set inline_styles = inline_styles|merge(['--mcta-btn-text: ' ~ page.header.btn_text_color]) %}
+{% endif %}
+{% if page.header.btn_hover_bg_color %}
+    {% set inline_styles = inline_styles|merge(['--mcta-btn-hover-bg: ' ~ page.header.btn_hover_bg_color]) %}
+{% endif %}
+{% if page.header.btn_hover_text_color %}
+    {% set inline_styles = inline_styles|merge(['--mcta-btn-hover-text: ' ~ page.header.btn_hover_text_color]) %}
+{% endif %}
+
+<section id="{{ cta_id }}" 
+         class="modular-cta modular-cta--layout-{{ layout }} modular-cta--preset-{{ preset }} {{ page.header.class }}"
+         {% if inline_styles|length > 0 %}style="{{ inline_styles|join('; ') }};"{% endif %}>
+    
+    <div class="modular-cta__wrapper">
+        <div class="modular-cta__content">
+            {% if page.header.cta_title %}
+                <h2 class="modular-cta__title">{{ page.header.cta_title }}</h2>
+            {% endif %}
+
+            {% if page.header.cta_subtitle %}
+                <p class="modular-cta__subtitle">{{ page.header.cta_subtitle }}</p>
+            {% endif %}
+
+            {% if page.content %}
+                <div class="modular-cta__body">
+                    {{ page.content|raw }}
+                </div>
+            {% endif %}
+        </div>
+
+        {% if (page.header.button_url and page.header.button_text) or (page.header.button_secondary_url and page.header.button_secondary_text) %}
+            <div class="modular-cta__actions">
+                {% if page.header.button_url and page.header.button_text %}
+                    <a href="{{ page.header.button_url }}" class="modular-cta__btn modular-cta__btn--primary" {{ target|raw }}>
+                        {{ page.header.button_text }}
+                    </a>
+                {% endif %}
+
+                {% if page.header.button_secondary_url and page.header.button_secondary_text %}
+                    <a href="{{ page.header.button_secondary_url }}" class="modular-cta__btn modular-cta__btn--secondary" {{ target|raw }}>
+                        {{ page.header.button_secondary_text }}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</section>

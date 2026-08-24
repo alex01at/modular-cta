@@ -1,0 +1,111 @@
+title: Call to Action (CTA)
+'@extends':
+  type: default
+  context: blueprints://pages
+
+form:
+  fields:
+    tabs:
+      type: tabs
+      active: 1
+      fields:
+        cta_content:
+          type: tab
+          title: PLUGIN_MODULAR_CTA.TAB_CONTENT
+          fields:
+            header.cta_title:
+              type: text
+              label: PLUGIN_MODULAR_CTA.TITLE_LABEL
+              help: PLUGIN_MODULAR_CTA.TITLE_HELP
+
+            header.cta_subtitle:
+              type: textarea
+              rows: 2
+              label: PLUGIN_MODULAR_CTA.SUBTITLE_LABEL
+              help: PLUGIN_MODULAR_CTA.SUBTITLE_HELP
+
+            header.button_text:
+              type: text
+              label: PLUGIN_MODULAR_CTA.BUTTON_TEXT_LABEL
+              default: PLUGIN_MODULAR_CTA.BUTTON_TEXT_DEFAULT
+
+            header.button_url:
+              type: text
+              label: PLUGIN_MODULAR_CTA.BUTTON_URL_LABEL
+              help: PLUGIN_MODULAR_CTA.BUTTON_URL_HELP
+
+            header.button_secondary_text:
+              type: text
+              label: PLUGIN_MODULAR_CTA.BUTTON_SECONDARY_TEXT_LABEL
+              help: PLUGIN_MODULAR_CTA.BUTTON_SECONDARY_TEXT_HELP
+
+            header.button_secondary_url:
+              type: text
+              label: PLUGIN_MODULAR_CTA.BUTTON_SECONDARY_URL_LABEL
+
+            header.button_target_blank:
+              type: toggle
+              label: PLUGIN_MODULAR_CTA.BUTTON_TARGET_LABEL
+              highlight: 1
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
+
+        cta_design:
+          type: tab
+          title: PLUGIN_MODULAR_CTA.TAB_DESIGN
+          fields:
+            header.cta_layout:
+              type: select
+              label: PLUGIN_MODULAR_CTA.LAYOUT_LABEL
+              default: split
+              options:
+                split: PLUGIN_MODULAR_CTA.LAYOUT_SPLIT
+                centered: PLUGIN_MODULAR_CTA.LAYOUT_CENTERED
+                hero_card: PLUGIN_MODULAR_CTA.LAYOUT_HERO_CARD
+
+            header.cta_preset:
+              type: select
+              label: PLUGIN_MODULAR_CTA.PRESET_THEME_LABEL
+              default: primary
+              options:
+                primary: PLUGIN_MODULAR_CTA.PRESET_PRIMARY
+                dark: PLUGIN_MODULAR_CTA.PRESET_DARK
+                light: PLUGIN_MODULAR_CTA.PRESET_LIGHT
+                custom: PLUGIN_MODULAR_CTA.PRESET_CUSTOM
+
+            header.custom_colors_section:
+              type: section
+              title: PLUGIN_MODULAR_CTA.SECTION_CUSTOM_COLORS
+              underline: true
+
+            header.bg_color:
+              type: colorpicker
+              label: PLUGIN_MODULAR_CTA.BG_COLOR_LABEL
+
+            header.text_color:
+              type: colorpicker
+              label: PLUGIN_MODULAR_CTA.TEXT_COLOR_LABEL
+
+            header.body_color:
+              type: colorpicker
+              label: PLUGIN_MODULAR_CTA.BODY_COLOR_LABEL
+
+            header.btn_bg_color:
+              type: colorpicker
+              label: PLUGIN_MODULAR_CTA.BTN_BG_COLOR_LABEL
+
+            header.btn_text_color:
+              type: colorpicker
+              label: PLUGIN_MODULAR_CTA.BTN_TEXT_COLOR_LABEL
+
+            header.btn_hover_bg_color:
+              type: colorpicker
+              label: PLUGIN_MODULAR_CTA.BTN_HOVER_BG_COLOR_LABEL
+
+            header.btn_hover_text_color:
+              type: colorpicker
+              label: PLUGIN_MODULAR_CTA.BTN_HOVER_TEXT_COLOR_LABEL

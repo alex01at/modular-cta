@@ -1,0 +1,228 @@
+/* ==========================================================================
+   Grav Modular CTA Plugin - Comprehensive Stylesheet
+   ========================================================================== */
+
+.modular-cta {
+    --mcta-bg: transparent;
+    --mcta-text: inherit;
+    --mcta-body: inherit;
+    --mcta-btn-bg: #0b5394;
+    --mcta-btn-text: #ffffff;
+    --mcta-btn-hover-bg: #083b6a;
+    --mcta-btn-hover-text: #ffffff;
+    --mcta-btn-sec-bg: transparent;
+    --mcta-btn-sec-text: var(--mcta-text);
+    --mcta-btn-sec-border: var(--mcta-text);
+
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--mcta-bg);
+    color: var(--mcta-text);
+    padding: 4rem 1.5rem;
+}
+
+.modular-cta *, .modular-cta *::before, .modular-cta *::after {
+    box-sizing: inherit;
+}
+
+.modular-cta__wrapper {
+    max-width: 1140px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.modular-cta__title {
+    margin: 0 0 0.75rem 0;
+    font-size: 2.1rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--mcta-text);
+}
+
+.modular-cta__subtitle {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    line-height: 1.45;
+    opacity: 0.92;
+    color: var(--mcta-text);
+}
+
+.modular-cta__body {
+    margin-top: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--mcta-body);
+}
+
+.modular-cta__body p:last-child {
+    margin-bottom: 0;
+}
+
+/* Actions & Buttons */
+.modular-cta__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+.modular-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.85rem 1.85rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.22s ease-in-out;
+    border: 2px solid transparent;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+.modular-cta__btn--primary {
+    background-color: var(--mcta-btn-bg);
+    color: var(--mcta-btn-text);
+    border-color: var(--mcta-btn-bg);
+}
+
+.modular-cta__btn--primary:hover {
+    background-color: var(--mcta-btn-hover-bg);
+    color: var(--mcta-btn-hover-text);
+    border-color: var(--mcta-btn-hover-bg);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+}
+
+.modular-cta__btn--secondary {
+    background-color: var(--mcta-btn-sec-bg);
+    color: var(--mcta-btn-sec-text);
+    border-color: currentColor;
+    opacity: 0.9;
+}
+
+.modular-cta__btn--secondary:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   LAYOUT VARIANTS (3 Total)
+   ========================================================================== */
+
+/* Layout 1: Split (Text Links, Buttons Rechts) */
+.modular-cta--layout-split .modular-cta__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+}
+
+@media (min-width: 820px) {
+    .modular-cta--layout-split .modular-cta__wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .modular-cta--layout-split .modular-cta__content {
+        flex: 1 1 auto;
+        max-width: 65%;
+    }
+    .modular-cta--layout-split .modular-cta__actions {
+        flex-shrink: 0;
+        justify-content: flex-end;
+    }
+}
+
+/* Layout 2: Centered Focus */
+.modular-cta--layout-centered {
+    text-align: center;
+    padding: 5rem 1.5rem;
+}
+
+.modular-cta--layout-centered .modular-cta__wrapper {
+    max-width: 780px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modular-cta--layout-centered .modular-cta__actions {
+    justify-content: center;
+    margin-top: 1.75rem;
+}
+
+/* Layout 3: Hero Card (Boxed Card with Floating Elevation) */
+.modular-cta--layout-hero_card {
+    padding: 4.5rem 1.5rem;
+}
+
+.modular-cta--layout-hero_card .modular-cta__wrapper {
+    background-color: var(--mcta-bg);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 6px solid var(--mcta-btn-bg);
+    border-radius: 12px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 860px) {
+    .modular-cta--layout-hero_card .modular-cta__wrapper {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .modular-cta--layout-hero_card .modular-cta__content {
+        flex: 1 1 auto;
+        max-width: 68%;
+    }
+    .modular-cta--layout-hero_card .modular-cta__actions {
+        flex-shrink: 0;
+    }
+}
+
+/* ==========================================================================
+   COLOR PRESETS (When not overridden by custom colors)
+   ========================================================================== */
+
+/* Preset Primary */
+.modular-cta--preset-primary {
+    --mcta-bg: #0b5394;
+    --mcta-text: #ffffff;
+    --mcta-body: #e3edf7;
+    --mcta-btn-bg: #ffffff;
+    --mcta-btn-text: #0b5394;
+    --mcta-btn-hover-bg: #f0f4f8;
+    --mcta-btn-hover-text: #083b6a;
+}
+
+/* Preset Dark */
+.modular-cta--preset-dark {
+    --mcta-bg: #1a1e24;
+    --mcta-text: #ffffff;
+    --mcta-body: #a0aec0;
+    --mcta-btn-bg: #3182ce;
+    --mcta-btn-text: #ffffff;
+    --mcta-btn-hover-bg: #2b6cb0;
+    --mcta-btn-hover-text: #ffffff;
+}
+
+/* Preset Light */
+.modular-cta--preset-light {
+    --mcta-bg: #f7fafc;
+    --mcta-text: #2d3748;
+    --mcta-body: #4a5568;
+    --mcta-btn-bg: #2d3748;
+    --mcta-btn-text: #ffffff;
+    --mcta-btn-hover-bg: #1a202c;
+    --mcta-btn-hover-text: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}

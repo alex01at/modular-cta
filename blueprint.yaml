@@ -1,0 +1,43 @@
+name: Modular CTA
+slug: modular-cta
+version: 1.1.0
+description: PLUGIN_MODULAR_CTA.PLUGIN_DESCRIPTION
+icon: bullhorn
+author:
+  name: Alexander Prossliner
+  email: office@internetprofis.at
+  url: https://internetprofis.at
+homepage: https://github.com/alex01at/grav-plugin-modular-cta
+keywords: grav, plugin, modular, cta, call to action, section, multilingual
+bugs: https://github.com/alex01at/grav-plugin-modular-cta/issues
+docs: https://github.com/alex01at/grav-plugin-modular-cta/blob/main/README.md
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.7.0' }
+
+form:
+  validation: strict
+  fields:
+    enabled:
+      type: toggle
+      label: PLUGIN_ADMIN.PLUGIN_STATUS
+      highlight: 1
+      default: 0
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
+
+    built_in_css:
+      type: toggle
+      label: PLUGIN_MODULAR_CTA.BUILT_IN_CSS
+      help: PLUGIN_MODULAR_CTA.BUILT_IN_CSS_HELP
+      highlight: 1
+      default: 1
+      options:
+        1: PLUGIN_ADMIN.ENABLED
+        0: PLUGIN_ADMIN.DISABLED
+      validate:
+        type: bool
