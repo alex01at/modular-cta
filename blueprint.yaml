@@ -7,14 +7,15 @@ author:
   name: Alexander Prossliner
   email: office@internetprofis.at
   url: https://internetprofis.at
-homepage: https://github.com/alex01at/grav-plugin-modular-cta
+homepage: https://github.com/alex01at/modular-cta
 keywords: grav, plugin, modular, cta, call to action, section, multilingual
-bugs: https://github.com/alex01at/grav-plugin-modular-cta/issues
-docs: https://github.com/alex01at/grav-plugin-modular-cta/blob/main/README.md
+bugs: https://github.com/alex01at/modular-cta/issues
+docs: https://github.com/alex01at/modular-cta/blob/main/README.md
 license: MIT
 
 dependencies:
   - { name: grav, version: '>=1.7.0' }
+  - { name: grav, version: '>=2.0' }
 
 form:
   validation: strict
