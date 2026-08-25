@@ -1,7 +1,8 @@
 # Changelog
 
 All notable changes to the `modular-cta` plugin will be documented in this file.
-
+## [1.1.2] - 2026-08-25
+- Add missing letter in file
 ## [1.1.1] - 2026-08-25
 - Fixed: Resolved duplicate Grav version constraints in dependencies
 ## [1.1.0] - 2026-08-24
