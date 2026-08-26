@@ -66,6 +66,7 @@ form:
                 split: PLUGIN_MODULAR_CTA.LAYOUT_SPLIT
                 centered: PLUGIN_MODULAR_CTA.LAYOUT_CENTERED
                 hero_card: PLUGIN_MODULAR_CTA.LAYOUT_HERO_CARD
+                banner: PLUGIN_MODULAR_CTA.LAYOUT_BANNER
 
             header.cta_preset:
               type: select
