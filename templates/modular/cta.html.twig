@@ -3,6 +3,10 @@
 {% set target = page.header.button_target_blank ? 'target="_blank" rel="noopener noreferrer"' : '' %}
 {% set cta_id = 'modular-cta-' ~ page.slug %}
 
+{% set bg_image = page.header.bg_image ? page.media.images[page.header.bg_image] : null %}
+{% set has_bg_image = bg_image ? true : false %}
+{% set animate = page.header.animate_on_scroll ? true : false %}
+
 {# Build dynamic CSS custom properties for custom colors #}
 {% set inline_styles = [] %}
 {% if page.header.bg_color %}
@@ -26,10 +30,25 @@
 {% if page.header.btn_hover_text_color %}
     {% set inline_styles = inline_styles|merge(['--mcta-btn-hover-text: ' ~ page.header.btn_hover_text_color]) %}
 {% endif %}
+{% if has_bg_image %}
+    {% set inline_styles = inline_styles|merge(['--mcta-bg-image: url(' ~ bg_image.url() ~ ')']) %}
+{% endif %}
+{% if page.header.bg_overlay_color %}
+    {% set inline_styles = inline_styles|merge(['--mcta-overlay-color: ' ~ page.header.bg_overlay_color]) %}
+{% endif %}
+{% if page.header.bg_overlay_opacity is defined and page.header.bg_overlay_opacity is not null %}
+    {% set inline_styles = inline_styles|merge(['--mcta-overlay-opacity: ' ~ (page.header.bg_overlay_opacity / 100)]) %}
+{% endif %}
 
-<section id="{{ cta_id }}" 
-         class="modular-cta modular-cta--layout-{{ layout }} modular-cta--preset-{{ preset }} {{ page.header.class }}"
+<section id="{{ cta_id }}"
+         class="modular-cta modular-cta--layout-{{ layout }} modular-cta--preset-{{ preset }}{{ has_bg_image ? ' modular-cta--has-bgimage' : '' }}{{ animate ? ' modular-cta--animate' : '' }} {{ page.header.class }}"
          {% if inline_styles|length > 0 %}style="{{ inline_styles|join('; ') }};"{% endif %}>
+
+    {% if has_bg_image %}
+        <div class="modular-cta__overlay"></div>
+    {% endif %}
+
+    <div class="modular-cta__wrapper">
     
     <div class="modular-cta__wrapper">
         <div class="modular-cta__content">
