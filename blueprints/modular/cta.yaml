@@ -107,7 +107,7 @@ form:
               type: colorpicker
               label: PLUGIN_MODULAR_CTA.BTN_HOVER_BG_COLOR_LABEL
 
-                        header.btn_hover_text_color:
+            header.btn_hover_text_color:
               type: colorpicker
               label: PLUGIN_MODULAR_CTA.BTN_HOVER_TEXT_COLOR_LABEL
 
