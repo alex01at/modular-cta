@@ -13,6 +13,9 @@
     --mcta-btn-sec-bg: transparent;
     --mcta-btn-sec-text: var(--mcta-text);
     --mcta-btn-sec-border: var(--mcta-text);
+    --mcta-bg-image: none;
+    --mcta-overlay-color: #000000;
+    --mcta-overlay-opacity: 0.5;
 
     position: relative;
     width: 100%;
@@ -20,13 +23,15 @@
     background-color: var(--mcta-bg);
     color: var(--mcta-text);
     padding: 4rem 1.5rem;
+    overflow: hidden;
 }
-
 .modular-cta *, .modular-cta *::before, .modular-cta *::after {
     box-sizing: inherit;
 }
 
 .modular-cta__wrapper {
+    position: relative;
+    z-index: 1;
     max-width: 1140px;
     margin: 0 auto;
     width: 100%;
@@ -111,7 +116,50 @@
 }
 
 /* ==========================================================================
-   LAYOUT VARIANTS (3 Total)
+   BACKGROUND IMAGE + OVERLAY
+   ========================================================================== */
+
+.modular-cta--has-bgimage {
+    background-image: var(--mcta-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.modular-cta__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: var(--mcta-overlay-color);
+    opacity: var(--mcta-overlay-opacity);
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   SCROLL ANIMATION
+   ========================================================================== */
+
+.modular-cta--animate {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.modular-cta--animate.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modular-cta--animate {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+/* ==========================================================================
+   LAYOUT VARIANTS (4 Total)
    ========================================================================== */
 
 /* Layout 1: Split (Text Links, Buttons Rechts) */
@@ -187,6 +235,32 @@
         flex-shrink: 0;
     }
 }
+
+/* Layout 4: Fullwidth Banner (Großflächig, zentriert, ideal mit Hintergrundbild) */
+.modular-cta--layout-banner {
+    padding: 6rem 1.5rem;
+    text-align: center;
+}
+
+.modular-cta--layout-banner .modular-cta__wrapper {
+    max-width: 860px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.75rem;
+}
+
+.modular-cta--layout-banner .modular-cta__title {
+    font-size: 2.6rem;
+}
+
+.modular-cta--layout-banner .modular-cta__actions {
+    justify-content: center;
+}
+
+/* ==========================================================================
+   COLOR PRESETS (When not overridden by custom colors)
+   ========================================================================== */
 
 /* ==========================================================================
    COLOR PRESETS (When not overridden by custom colors)
