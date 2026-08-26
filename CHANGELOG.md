@@ -1,6 +1,11 @@
 # Changelog
 
 All notable changes to the `modular-cta` plugin will be documented in this file.
+## [1.2.0] - 2026-08-26
+### Added
+- 4 layout type for CTA (full banner)
+- now you can add a background image
+- scroll animation for cta
 ## [1.1.3] - 2026-08-26
 - Write description direct
 ## [1.1.2] - 2026-08-25
