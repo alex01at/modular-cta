@@ -26,11 +26,14 @@ class ModularCtaPlugin extends Plugin
         $types->scanBlueprints(__DIR__ . '/blueprints');
     }
 
-    public function onTwigSiteVariables(): void
+        public function onTwigSiteVariables(): void
     {
         if (!$this->isAdmin()) {
             if ($this->config->get('plugins.modular-cta.built_in_css', true)) {
                 $this->grav['assets']->addCss('plugin://modular-cta/css/modular-cta.css');
+            }
+            if ($this->config->get('plugins.modular-cta.scroll_animation_js', true)) {
+                $this->grav['assets']->addJs('plugin://modular-cta/js/modular-cta.js', ['loading' => 'defer', 'group' => 'bottom']);
             }
         }
     }
