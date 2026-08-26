@@ -107,6 +107,48 @@ form:
               type: colorpicker
               label: PLUGIN_MODULAR_CTA.BTN_HOVER_BG_COLOR_LABEL
 
-            header.btn_hover_text_color:
+                        header.btn_hover_text_color:
               type: colorpicker
               label: PLUGIN_MODULAR_CTA.BTN_HOVER_TEXT_COLOR_LABEL
+
+            header.bg_image_section:
+              type: section
+              title: PLUGIN_MODULAR_CTA.SECTION_BG_IMAGE
+              underline: true
+
+            header.bg_image:
+              type: pagemediaselector
+              label: PLUGIN_MODULAR_CTA.BG_IMAGE_LABEL
+              help: PLUGIN_MODULAR_CTA.BG_IMAGE_HELP
+
+            header.bg_overlay_color:
+              type: colorpicker
+              label: PLUGIN_MODULAR_CTA.BG_OVERLAY_COLOR_LABEL
+              help: PLUGIN_MODULAR_CTA.BG_OVERLAY_COLOR_HELP
+              default: '#000000'
+
+            header.bg_overlay_opacity:
+              type: range
+              label: PLUGIN_MODULAR_CTA.BG_OVERLAY_OPACITY_LABEL
+              help: PLUGIN_MODULAR_CTA.BG_OVERLAY_OPACITY_HELP
+              min: 0
+              max: 100
+              step: 5
+              default: 50
+
+            header.animation_section:
+              type: section
+              title: PLUGIN_MODULAR_CTA.SECTION_ANIMATION
+              underline: true
+
+            header.animate_on_scroll:
+              type: toggle
+              label: PLUGIN_MODULAR_CTA.ANIMATE_ON_SCROLL_LABEL
+              help: PLUGIN_MODULAR_CTA.ANIMATE_ON_SCROLL_HELP
+              highlight: 1
+              default: 0
+              options:
+                1: PLUGIN_ADMIN.YES
+                0: PLUGIN_ADMIN.NO
+              validate:
+                type: bool
